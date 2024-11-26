@@ -1,18 +1,24 @@
-import React from 'react';
-import './App.scss';
-import { Route, Routes } from 'react-router-dom';
-import "./pages/Home.jsx"
-import Home from './pages/Home.jsx';
+import React from 'react'
+import './App.css'
+import { Route, Router, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Header from './components/Header/Header'
+import Footer from './components/footer/Footer'
+import Shop from './pages/Shop'
 
 const App = () => {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home/>} />
+      <Header />
 
-      </Routes>
+    <Routes>
+    <Route path='/' element={<Home/>} />
+    <Route path='/shop' element={<Shop/>} />
+    </Routes>
+    <Footer/>
+
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

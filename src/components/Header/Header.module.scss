@@ -1,38 +1,116 @@
 .nav {
   display: flex;
-  justify-content: space-between;
   gap: 20px;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-
-  a{
-   text-decoration: none;
-   color: black;
+  padding-top: 20px;
 }
 
-}
-
-.logo{
-  font-family:  "Candal", sans-serif;
+.logo {
+  font-family: 'Candal', sans-serif;
   font-size: 32px;
   font-weight: 700;
-
- 
-}
-.menu{
-   gap: 24px;
+  color: #000;
+  text-decoration: none;
 }
 
-.search{
-   max-width: 500px;
-   width: 100%;
-   padding: 13px;
-   border-radius: 62px;
-   background-color: #F0F0F0;
-   border: none;
+.menu {
+  display: flex;
+  gap: 24px;
 
-   background-image: url(/public/search-icon.svg);
-   background-repeat: no-repeat;
-   background-position: 20px;
-   padding-left: 52px;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  @media (max-width: 700px) {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100dvh;
+    background-color: gray;
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.5s;
+
+    &.active {
+      right: 0;
+    }
+  }
+}
+.box {
+  display: flex;
+  gap: 10px;
+}
+
+.search {
+  max-width: 500px;
+  width: 100%;
+  padding: 13px;
+  border-radius: 60px;
+  background-color: #f0f0f0;
+  border: none;
+  background-image: url(/search-icon.svg);
+  background-repeat: no-repeat;
+  background-position: 20px;
+  padding-left: 52px;
+}
+
+.burger {
+  position: relative;
+  z-index: 21;
+  display: none;
+  @media (max-width: 700px) {
+    display: block;
+  }
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  &:hover {
+    div {
+      opacity: 1;
+      visibility: visible;
+    }
+    svg {
+      rotate: -180deg;
+    }
+  }
+
+  position: relative;
+  div {
+    position: absolute;
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    padding: 0px 0px;
+    display: flex;
+    flex-direction: column;
+    top: 20px;
+    right: 0;
+    top: 25px;
+    box-shadow: 0 0 10 rgba(0, 0, 0, 0.226);
+
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    a {
+      padding: 4px 8px;
+      transition: 0.5s;
+      &:hover {
+        background-color: lightgray;
+      }
+    }
+  }
+}
+svg {
+  transition: 0.5s;
 }

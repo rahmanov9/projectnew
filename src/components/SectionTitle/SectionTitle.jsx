@@ -1,10 +1,10 @@
 import React from 'react'
-import  s  from "./SectionTitle.module.scss";
+import s from './SectionTitle.module.scss'
 
-const SectionTitle = ({  children,orient   }) => {
+const SectionTitle = ({ children='Soon...', orient='center' }) => {
   return (
     <>
-    <h2 style={{textAlign: orient}} className="title">{children}</h2>
+    <h2 style={{textAlign: orient}} className={s.title}>{children}</h2>
     </>
   )
 }
