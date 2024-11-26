@@ -7,6 +7,10 @@ const Header = () => {
   const toggleMenu = () => {
     setIsActive(!isActive)
   }
+
+  const closeMenu = () => {
+    setIsActive(false)
+  }
   return (
     <>
       <header className={s.header}>
@@ -17,7 +21,7 @@ const Header = () => {
               SHOP.CO
             </Link>
             <div className={`${s.menu} ${isActive ? s.active : null}`}>
-              <Link className={s.dropdown} to={'/shop'}>
+              <Link onClick={closeMenu} className={s.dropdown} to={'/shop'}>
                 Shop
                 <svg
                   width="16"
@@ -39,9 +43,9 @@ const Header = () => {
                   <Link to={"/"}>Gym</Link>
                 </div>
                 </Link>
-              <Link to={'/'}>On Sale</Link>
-              <Link to={'/'}>New Arrivals</Link>
-              <Link to={'/'}>Brands</Link>
+              <Link onClick={closeMenu} to={'/'}>On Sale</Link>
+              <Link onClick={closeMenu} to={'/'}>New Arrivals</Link>
+              <Link onClick={closeMenu} to={'/'}>Brands</Link>
             </div>
             <input placeholder='Search for products...' className={s.search} type="text" />
             <div className={s.box}>
